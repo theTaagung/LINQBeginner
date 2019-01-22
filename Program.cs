@@ -17,130 +17,250 @@ namespace LINQBeginner
             InitializeProjects();
 
             //WHERE
-            //var querySyntax = from employee in employees
-            //                  where employee.EmployeeName.StartsWith("J")
-            //                  select employee.EmployeeName;
+            var querySyntax1 = from employee in employees
+                              where employee.EmployeeName.StartsWith("T")
+                              select employee.EmployeeName;            
 
+            Console.WriteLine("Where in querySyntax------");
+            foreach (var item in querySyntax1)
+            {
+                Console.WriteLine(item);
+            }
 
-            //var methodSyntax = employees.Where(e => e.EmployeeName.StartsWith("J"));
+            var methodSyntax1 = employees.Where(e => e.EmployeeName.StartsWith("T"));
+            Console.WriteLine("Where in methodSyntax-----");
+            foreach (var item in methodSyntax1)
+            {
+                Console.WriteLine(item.EmployeeName);
+            }
 
-            //foreach (var item in querySyntax) {
-            //    Console.WriteLine(item);
-            //}
-
-
-            //ORDER BY DESCENDING
-            //var querySyntax = from employee in employees
-            //                  orderby employee.EmployeeName descending
-            //                  select employee.EmployeeName;
-
-
-            //var methodSyntax = employees.OrderByDescending(e => e.EmployeeName);
-
-            //foreach (var item in querySyntax)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            Console.WriteLine('\n');
 
             //ORDER BY ASCENDING
-            //var querySyntax = from employee in employees
-            //                  orderby employee.EmployeeName
-            //                  select employee.EmployeeName;
+            var querySyntax2 = from employee in employees
+                               orderby employee.EmployeeName
+                               select employee.EmployeeName;
 
 
-            //var methodSyntax = employees.OrderBy(e => e.EmployeeName);
+            var methodSyntax2 = employees.OrderBy(e => e.EmployeeName);
 
-            //foreach (var item in querySyntax)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            Console.WriteLine("Order by ascending in querySyntax------");
+            foreach (var item in querySyntax2)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("Order by ascending in methodSyntax------");
+            foreach (var item in methodSyntax2)
+            {
+                Console.WriteLine(item.EmployeeName);
+            }
+
+            Console.WriteLine('\n');
+
+            //ORDER BY DESCENDING
+            var querySyntax3 = from employee in employees
+                              orderby employee.EmployeeName descending
+                              select employee.EmployeeName;
+
+
+            var methodSyntax3 = employees.OrderByDescending(e => e.EmployeeName);
+
+            Console.WriteLine("Order by descending in querySyntax------");
+            foreach (var item in querySyntax3)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("Order by descending in methodSyntax------");
+            foreach (var item in methodSyntax3)
+            {
+                Console.WriteLine(item.EmployeeName);
+            }
+
+            Console.WriteLine('\n');
+
+
 
 
             //THEN BY
-            //var querySyntax = from employee in employees
-            //                  orderby employee.ProjectId, employee.EmployeeName descending
-            //                  select employee.EmployeeName;
+
+        
+            var querySyntax4 = from employee in employees
+                               orderby employee.ProjectId, employee.EmployeeName descending
+                               select employee;
 
 
-            //var methodSyntax = employees.OrderBy(e => e.ProjectId).ThenByDescending(e => e.EmployeeName);
+            var methodSyntax4 = employees.OrderBy(e => e.ProjectId).ThenByDescending(e => e.EmployeeName);
 
-            //foreach (var item in querySyntax)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            Console.WriteLine("Then by in querySyntax------");
+            foreach (var item in querySyntax4)
+            {
+                Console.WriteLine(item.EmployeeName + ":" + item.ProjectId);
+            }
+
+            Console.WriteLine("Then by in methodSyntax------");
+            foreach (var item in methodSyntax4)
+            {
+                Console.WriteLine(item.EmployeeName + ":" + item.ProjectId);
+            }
+
+            Console.WriteLine('\n');
 
             //TAKE
-            //var querySyntax = (from employee in employees
-            //                   select employee).Take(2);
+            var querySyntax5 = (from employee in employees
+                               select employee).Take(2);
 
 
-            //var methodSyntax = employees.Take(2);
+            var methodSyntax5 = employees.Take(2);
 
-            //foreach (var item in querySyntax)
-            //{
-            //    Console.WriteLine(item.EmployeeName);
-            //}
+     
+            Console.WriteLine("Take in querySyntax------");
+            foreach (var item in querySyntax5)
+            {
+                Console.WriteLine(item.EmployeeName);
+            }
+
+            Console.WriteLine("Take in methodSyntax------");
+            foreach (var item in methodSyntax5)
+            {
+                Console.WriteLine(item.EmployeeName);
+            }
+
+            Console.WriteLine('\n');
 
 
+            //SKIP
+            var querySyntax6 = (from employee in employees
+                                select employee).Skip(2);
+
+
+            var methodSyntax6 = employees.Skip(2);
+
+            Console.WriteLine("Skip in querySyntax------");
+            foreach (var item in querySyntax6)
+            {
+                Console.WriteLine(item.EmployeeName);
+            }
+
+            Console.WriteLine("Skip in methodSyntax------");
+            foreach (var item in methodSyntax6)
+            {
+                Console.WriteLine(item.EmployeeName);
+            }
+
+            Console.WriteLine('\n');
 
             //GROUP
-            //var querySyntax = from employee in employees
-            //                  group employee by employee.ProjectId;
+            var querySyntax7 = from employee in employees
+                              group employee by employee.ProjectId;
 
 
-            //var methodSyntax = employees.GroupBy(e => e.ProjectId);
+            var methodSyntax7 = employees.GroupBy(e => e.ProjectId);
 
-            //foreach (var item in querySyntax)
-            //{
-            //    Console.WriteLine(item.Key + ":" + item.Count());
-            //}
+            Console.WriteLine("Group in querySyntax------");
+            foreach (var item in querySyntax7)
+            {
+                Console.WriteLine(item.Key + ":" + item.Count());
+            }
+
+            Console.WriteLine("Group in methodSyntax------");
+            foreach (var item in methodSyntax7)
+            {
+                Console.WriteLine(item.Key + ":" + item.Count());
+            }
+
+            Console.WriteLine('\n');
+
 
 
             //FIRST
-            //var querySyntax = (from employee in employees
-            //                   select employee).FirstOrDefault();
+            var querySyntax8 = (from employee in employees
+                                //where employee.EmployeeName.StartsWith("Q")
+                                select employee).First();
 
-            //var methodSyntax = employees.FirstOrDefault();
+            var methodSyntax8 = employees
+                                //.Where(e => e.EmployeeName.StartsWith("Q"))                 
+                                .First();
 
-            //if (querySyntax != null) {
-            //    Console.WriteLine(querySyntax.EmployeeName);
-            //}
+            Console.WriteLine("First in querySyntax------");
+            if (querySyntax8 != null)
+            {
+                Console.WriteLine(querySyntax8.EmployeeName);
+            }
 
+            Console.WriteLine("First in methodSyntax------");
+            if (methodSyntax8 != null)
+            {
+                Console.WriteLine(methodSyntax8.EmployeeName);
+            }
+
+            Console.WriteLine('\n');
+
+            //FIRST OR DEFAULT
+            var querySyntax9 = (from employee in employees
+                                //where employee.EmployeeName.StartsWith("Q")
+                                select employee).FirstOrDefault();
+
+            var methodSyntax9 = employees
+                               //.Where(e => e.EmployeeName.StartsWith("Q"))
+                                .FirstOrDefault();
+
+            Console.WriteLine("First or default in querySyntax------");
+            if (querySyntax9 != null)
+            {
+                Console.WriteLine(querySyntax9.EmployeeName);
+            }
+
+            Console.WriteLine("First or default in methodSyntax------");
+            if (methodSyntax9 != null)
+            {
+                Console.WriteLine(methodSyntax9.EmployeeName);
+            }
+
+            Console.WriteLine('\n');
 
             //JOIN
-            //var querySyntax = from employee in employees
-            //                  join project in projects on employee.ProjectId equals project.ProjectId
-            //                  select new { employee.EmployeeName, project.ProjectName };
+            var querySyntax10 = from employee in employees
+                              join project in projects on employee.ProjectId equals project.ProjectId
+                              select new { employee.EmployeeName, project.ProjectName };
 
-            //var methodSyntax = employees.Join(projects,
-            //                                  e => e.ProjectId,
-            //                                  p => p.ProjectId,
-            //                                  (e, p) => new { e.EmployeeName, p.ProjectName });
+            var methodSyntax10 = employees.Join(projects,
+                                              e => e.ProjectId,
+                                              p => p.ProjectId,
+                                              (e, p) => new { e.EmployeeName, p.ProjectName });
 
-            //foreach (var item in querySyntax)
-            //{
-            //    Console.WriteLine(item.EmployeeName + ":" + item.ProjectName);
-            //}
+            Console.WriteLine("Join in querySyntax------");
+            foreach (var item in querySyntax10)
+            {
+                Console.WriteLine(item.EmployeeName + ":" + item.ProjectName);
+            }
 
 
+            Console.WriteLine("Join in methodSyntax------");
+            foreach (var item in methodSyntax10)
+            {
+                Console.WriteLine(item.EmployeeName + ":" + item.ProjectName);
+            }
+
+            Console.WriteLine('\n');
 
             //LEFT JOIN
-            //var querySyntax = from employee in employees
-            //                  join project in projects on employee.ProjectId equals project.ProjectId into group1 
-            //                  from project in group1.DefaultIfEmpty()
-            //                  select new { employee.EmployeeName, ProjectName = project ? .ProjectName ?? "NULL"};
+            var querySyntax11 = from employee in employees
+                              join project in projects on employee.ProjectId equals project.ProjectId into group1
+                              from project in group1.DefaultIfEmpty()
+                              select new { employee.EmployeeName, ProjectName = project?.ProjectName ?? "NULL" };
 
-            //var methodSyntax = employees.Join(projects,
-            //                                  e => e.ProjectId,
-            //                                  p => p.ProjectId,
-            //                                  (e, p) => new { e.EmployeeName, p.ProjectName });
+            
+            
+            Console.WriteLine("Left Join in querySyntax------");
+            foreach (var item in querySyntax11)
+            {
+                Console.WriteLine(item.EmployeeName + ":" + item.ProjectName);
+            }
 
-            //foreach (var item in querySyntax)
-            //{
-            //    Console.WriteLine(item.EmployeeName + ":" + item.ProjectName);
-            //}
-
-
+            Console.WriteLine('\n');
+           
         }
 
         public static void InitializeEmployees()
@@ -148,21 +268,21 @@ namespace LINQBeginner
             employees.Add(new Employee
             {
                 EmployeeId = 1,
-                EmployeeName = "John",
+                EmployeeName = "Tuba",
                 ProjectId = 100
             });
 
             employees.Add(new Employee
             {
                 EmployeeId = 2,
-                EmployeeName = "Jennifer",
+                EmployeeName = "Atul",
                 ProjectId = 101
             });
 
             employees.Add(new Employee
             {
                 EmployeeId = 3,
-                EmployeeName = "Sam",
+                EmployeeName = "Theran",
                 ProjectId = 101
             });
         }
